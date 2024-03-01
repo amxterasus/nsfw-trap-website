@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TrapCard from "../components/TrapCard.astro";
+---
+
+<Layout title="Trap">
+  <main>
+    <div class="trap">
+      <TrapCard />
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  #home {
+    border: 1px solid #1c1d20;
+    background: #1a1a1a63;
+  }
+
+  [data-tooltip]:hover:before {
+    transform: translate(0%, 130%);
+  }
+</style>
+
+<style>
+  main {
+    margin-top: 90px;
+  }
+
+  .trap {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

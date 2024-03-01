@@ -1,0 +1,86 @@
+---
+const res = await fetch("https://api.waifu.pics/nsfw/trap");
+const data = await res.json();
+---
+
+<div class="trap_card">
+  <header class="header">
+    <h1>NSFW trap</h1>
+  </header>
+  <div class="trap_img">
+    <img src={data.url} alt="trap" class="img" />
+  </div>
+  <button id="button">Next Trap</button>
+</div>
+
+<style>
+  .trap_card {
+    width: 800px;
+    background-color: rgba(13, 13, 13, 0.95);
+    border: 1px solid #1c1d20;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .header {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .trap_img {
+    width: 320px;
+    margin: 30px 0;
+  }
+
+  .trap_img img {
+    width: 100%;
+    border: 1px solid #1c1d20;
+    border-radius: 5px;
+  }
+
+  button {
+    background-color: rgba(13, 13, 13, 0.95);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border: 1px solid #1c1d20;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .trap_card {
+      width: 80vw;
+    }
+
+    .header {
+      font-size: 12px;
+    }
+
+    .trap_img {
+      width: 260px
+    }
+  }
+</style>
+
+<script>
+  document.querySelector("#button")?.addEventListener("click", async () => {
+    const res = await fetch(`https://api.waifu.pics/nsfw/trap`);
+    const data = await res.json();
+
+    const imgElement = document.querySelector(".img");
+    if (imgElement instanceof HTMLImageElement) {
+      imgElement.src = data.url;
+    }
+  });
+</script>

@@ -1,0 +1,58 @@
+---
+const images = [];
+
+for (let i = 0; i < 50; i++) {
+  const res = await fetch("https://api.waifu.pics/nsfw/trap");
+  const data = await res.json();
+  images.push(data.url);
+}
+
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Trap Gallery">
+  <main>
+    <div class="gallery">
+      {
+        images.map((url, index) => (
+          <div class="pic">
+            <img src={url} alt={`Trap ${index + 1}`} loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  #gallery {
+    border: 1px solid #1c1d20;
+    background: #1a1a1a63;
+  }
+
+  [data-tooltip]:hover:before {
+    transform: translate(-40%, 100%);
+  }
+</style>
+<style>
+  main {
+    margin-top: 90px;
+  }
+
+  .gallery {
+    line-height: 0;
+    column-count: 5;
+    column-gap: 0;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .gallery {
+      column-count: 2;
+    }
+  }
+</style>

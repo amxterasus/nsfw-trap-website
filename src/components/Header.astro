@@ -1,0 +1,127 @@
+---
+
+---
+
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar_logo">
+    </div>
+    <div class="navbar_items_container">
+      <div class="navbar_items">
+        <a id="home" href="/" class="navbar_item">
+          <svg
+            width="24px"
+            height="24px"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#d4d4d4"
+            data-astro-cid-3ef6ksr2=""
+          >
+            <path
+              d="M9 21H7C4.79086 21 3 19.2091 3 17V10.7076C3 9.30887 3.73061 8.01175 4.92679 7.28679L9.92679 4.25649C11.2011 3.48421 12.7989 3.48421 14.0732 4.25649L19.0732 7.28679C20.2694 8.01175 21 9.30887 21 10.7076V17C21 19.2091 19.2091 21 17 21H15M9 21V17C9 15.3431 10.3431 14 12 14V14C13.6569 14 15 15.3431 15 17V21M9 21H15"
+              stroke="#d4d4d4"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              data-astro-cid-3ef6ksr2=""></path>
+          </svg>
+          Home
+        </a>
+        <a id="gallery" href="/gallery" class="navbar_item">
+          <svg
+            width="24px"
+            height="24px"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            color="#d4d4d4"
+            ><path
+              d="M21 7.6V20.4C21 20.7314 20.7314 21 20.4 21H7.6C7.26863 21 7 20.7314 7 20.4V7.6C7 7.26863 7.26863 7 7.6 7H20.4C20.7314 7 21 7.26863 21 7.6Z"
+              stroke="#d4d4d4"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path><path
+              d="M18 4H4.6C4.26863 4 4 4.26863 4 4.6V18"
+              stroke="#d4d4d4"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path><path
+              d="M7 16.8L12.4444 15L21 18"
+              stroke="#d4d4d4"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path><path
+              d="M16.5 13C15.6716 13 15 12.3284 15 11.5C15 10.6716 15.6716 10 16.5 10C17.3284 10 18 10.6716 18 11.5C18 12.3284 17.3284 13 16.5 13Z"
+              stroke="#d4d4d4"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+          Gallery
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .navbar {
+    width: 85%;
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13, 13, 13, 0.95);
+    border-radius: 5px;
+    border: 1px solid #1c1d20;
+    padding: 0 10px;
+    position: absolute;
+    top: 0;
+  }
+
+  .navbar_logo {
+    width: 35px;
+  }
+
+  .navbar_items_container {
+    width: 100%;
+  }
+
+  .navbar_items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .navbar_item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    color: #d4d4d4;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar_item svg {
+    width: 16px;
+    margin-right: 7px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar_items {
+      justify-content: space-between;
+    }
+  }
+</style>
