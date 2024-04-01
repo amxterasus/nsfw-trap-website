@@ -4,11 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Trap Gallery">
   <main>
-    <div class="gallery">
-      <div class="pic">
-        <img src="" alt="" loading="lazy" class="gallery_img" />
-      </div>
-    </div>
+    <div class="gallery"></div>
   </main>
 </Layout>
 
@@ -22,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
     transform: translate(-40%, 100%);
   }
 </style>
-<style>
+<style is:global>
   main {
     margin-top: 90px;
   }
@@ -33,7 +29,7 @@ import Layout from "../layouts/Layout.astro";
     column-gap: 0;
   }
 
-  .gallery img {
+  .gallery_img {
     width: 100%;
     height: auto;
   }
@@ -46,14 +42,31 @@ import Layout from "../layouts/Layout.astro";
 </style>
 
 <script>
-  const galleryImg = document.querySelector(".gallery_img");
+  const images: string[] = [];
 
-  for (let i = 0; i < 50; i++) {
-    const res = await fetch("https://api.waifu.pics/nsfw/trap");
-    const data = await res.json();
-    if (galleryImg instanceof HTMLImageElement) {
-      galleryImg.src = data.url;
-      galleryImg.alt = `Trap ${i + 1}`;
+  async function fetchImages() {
+    for (let i = 0; i < 50; i++) {
+      const res = await fetch("https://api.waifu.pics/nsfw/trap");
+      const data = await res.json();
+      images.push(data.url);
+      render(i);
     }
   }
+
+  function render(index: number) {
+    const gallery = document.querySelector(".gallery");
+    if (gallery) {
+      const div = document.createElement("div");
+      div.classList.add("pic");
+      const img = document.createElement("img");
+      img.classList.add("gallery_img");
+      img.src = images[index];
+      img.alt = `Trap ${index + 1}`;
+      img.loading = "lazy";
+      div.appendChild(img);
+      gallery.appendChild(div);
+    }
+  }
+
+  fetchImages();
 </script>
