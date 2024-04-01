@@ -1,14 +1,12 @@
 ---
-const res = await fetch("https://api.waifu.pics/nsfw/trap");
-const data = await res.json();
 ---
 
 <div class="trap_card">
   <header class="header">
     <h1>NSFW trap</h1>
   </header>
-  <div class="trap_img">
-    <img src={data.url} alt="trap" class="img" />
+  <div class="trap_img_container">
+    <img src="" alt="trap" class="trap_img" />
   </div>
   <button id="button">Next Trap</button>
 </div>
@@ -32,12 +30,12 @@ const data = await res.json();
     text-align: center;
   }
 
-  .trap_img {
+  .trap_img_container {
     width: 320px;
     margin: 30px 0;
   }
 
-  .trap_img img {
+  .trap_img_container img {
     width: 100%;
     border: 1px solid #1c1d20;
     border-radius: 5px;
@@ -67,18 +65,24 @@ const data = await res.json();
       font-size: 12px;
     }
 
-    .trap_img {
-      width: 260px
+    .trap_img_container {
+      width: 260px;
     }
   }
 </style>
 
 <script>
-  document.querySelector("#button")?.addEventListener("click", async () => {
-    const res = await fetch(`https://api.waifu.pics/nsfw/trap`);
-    const data = await res.json();
+  const res = await fetch(`https://api.waifu.pics/nsfw/trap`);
+  const data = await res.json();
 
-    const imgElement = document.querySelector(".img");
+  const imgElement = document.querySelector(".trap_img");
+  const trapImgContainer = document.querySelector(".trap_img_container");
+
+  if (imgElement instanceof HTMLImageElement && trapImgContainer) {
+    imgElement.src = data.url;
+  }
+
+  document.querySelector("#button")?.addEventListener("click", async () => {
     if (imgElement instanceof HTMLImageElement) {
       imgElement.src = data.url;
     }
