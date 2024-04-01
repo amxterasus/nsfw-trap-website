@@ -52,7 +52,7 @@ import Layout from "../layouts/Layout.astro";
     const res = await fetch("https://api.waifu.pics/nsfw/trap");
     const data = await res.json();
     if (galleryImg instanceof HTMLImageElement) {
-      galleryImg.src = data;
+      galleryImg.src = data.url;
       galleryImg.alt = `Trap ${i + 1}`;
     }
   }
